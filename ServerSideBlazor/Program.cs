@@ -33,10 +33,11 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
-using (var scope = app.Services.CreateScope()) {
+using (var scope = app.Services.CreateScope())
+{
     var services = scope.ServiceProvider;
 
-    var context = services.GetRequiredService<SchoolDbContext>();    
+    var context = services.GetRequiredService<SchoolDbContext>();
     context.Database.Migrate();
 }
 
